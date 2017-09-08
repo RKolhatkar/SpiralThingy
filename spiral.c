@@ -29,7 +29,7 @@ int i,j;
 for(i=0;i<SIZE;i++) {
 	printf("\n");
 	if(i==SIZE/2)
-		printf("-------------------------\n");
+		printf("-------------------------\n");  // A line for reference
 	for(j=0;j<SIZE;j++) {
 		printf("%d\t", m[i][j]);
 			}
@@ -39,16 +39,25 @@ for(i=0;i<SIZE;i++) {
 void spiral(int m[SIZE][SIZE]) {
 
 int row,col;
-row=SIZE/2-1;
-// Upper part
+
+row=SIZE/2-1; 		// Start From mid row
+
+//we need all cols to be traversed
 for(col=0;col<SIZE;col++) {
-	if(m[row][col] != m[SIZE-row-1][col]) {
+	if(m[row][col] != m[SIZE-row-1][col]) { 
+
+/* if row = 4/2-1 = 1, 
+ * then we need to compare with 
+ * 4-1-1 = 2 row.
+ * if row = 0, 4-0-1 = 3 
+ */
+
 		int t = m[row][col];
 		m[row][col]=m[SIZE-row-1][col];
 		m[SIZE-row-1][col]=t;
 	}
 	if(row>0)
-		row--;
+		row--; //go 1 row backwards.
 }
 
 printm(m);
