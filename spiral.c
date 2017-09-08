@@ -51,10 +51,11 @@ for(col=0;col<SIZE;col++) {
  * 4-1-1 = 2 row.
  * if row = 0, 4-0-1 = 3 
  */
-
-		int t = m[row][col];
-		m[row][col]=m[SIZE-row-1][col];
-		m[SIZE-row-1][col]=t;
+		if(m[row][col] == 0) {
+			int t = m[row][col];
+			m[row][col]=m[SIZE-row-1][col];
+			m[SIZE-row-1][col]=t;
+		}
 	}
 	if(row>0)
 		row--; //go 1 row backwards.
