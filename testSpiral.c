@@ -83,7 +83,7 @@ row = SIZE/2 - 1;
 
 while(row >= 0){
 col = 0;
-he2:if(m[row][col] == 0){
+jump:if(m[row][col] == 0){
 	t = 0;col2 = 0;
 	there: if(m[SIZE-row-1][col2] == 1){		
 			t = m[row][col];
@@ -96,7 +96,7 @@ he2:if(m[row][col] == 0){
 }	
 	col++;
 	if(!(col == SIZE))
-		goto he2;
+		goto jump;
 row--;
 }
 printData(m);
